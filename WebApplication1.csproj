@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F5FF440F-ADD1-4C7B-A8DF-769E1BEBF956}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApplication1</RootNamespace>
+    <AssemblyName>WebApplication1</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="config.xml" />
+    <Content Include="gulpfile.js" />
+    <Content Include="hooks\after_prepare\010_add_platform_class.js" />
+    <Content Include="plugins\com.ionic.keyboard\plugin.xml" />
+    <Content Include="plugins\com.ionic.keyboard\src\android\IonicKeyboard.java" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\index.js" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\public\json\autolink.h" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\public\json\config.h" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\public\json\features.h" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\public\json\forwards.h" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\public\json\json.h" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\public\json\reader.h" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\public\json\value.h" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\public\json\writer.h" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\public\json_batchallocator.h" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\public\json_internalarray.inl" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\public\json_internalmap.inl" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\public\json_reader.cpp" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\public\json_value.cpp" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\public\json_valueiterator.inl" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\public\json_writer.cpp" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\public\plugin.cpp" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\public\plugin.h" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\public\tokenizer.cpp" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\public\tokenizer.h" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\src\keyboard_js.cpp" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\src\keyboard_js.hpp" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\src\keyboard_ndk.cpp" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\src\keyboard_ndk.hpp" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\src\Logger.cpp" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\src\Logger.hpp" />
+    <Content Include="plugins\com.ionic.keyboard\src\ios\IonicKeyboard.h" />
+    <Content Include="plugins\com.ionic.keyboard\src\ios\UIWebViewExtension.h" />
+    <Content Include="plugins\com.ionic.keyboard\www\keyboard.js" />
+    <Content Include="plugins\cordova-plugin-console\plugin.xml" />
+    <Content Include="plugins\cordova-plugin-console\src\ios\CDVLogger.h" />
+    <Content Include="plugins\cordova-plugin-console\src\ubuntu\console.cpp" />
+    <Content Include="plugins\cordova-plugin-console\src\ubuntu\console.h" />
+    <Content Include="plugins\cordova-plugin-console\tests\plugin.xml" />
+    <Content Include="plugins\cordova-plugin-console\tests\tests.js" />
+    <Content Include="plugins\cordova-plugin-console\www\console-via-logger.js" />
+    <Content Include="plugins\cordova-plugin-console\www\logger.js" />
+    <Content Include="plugins\cordova-plugin-device\plugin.xml" />
+    <Content Include="plugins\cordova-plugin-device\src\android\Device.java" />
+    <Content Include="plugins\cordova-plugin-device\src\blackberry10\index.js" />
+    <Content Include="plugins\cordova-plugin-device\src\browser\DeviceProxy.js" />
+    <Content Include="plugins\cordova-plugin-device\src\firefoxos\DeviceProxy.js" />
+    <Content Include="plugins\cordova-plugin-device\src\ios\CDVDevice.h" />
+    <Content Include="plugins\cordova-plugin-device\src\tizen\DeviceProxy.js" />
+    <Content Include="plugins\cordova-plugin-device\src\ubuntu\device.cpp" />
+    <Content Include="plugins\cordova-plugin-device\src\ubuntu\device.h" />
+    <Content Include="plugins\cordova-plugin-device\src\ubuntu\device.js" />
+    <Content Include="plugins\cordova-plugin-device\src\windows\DeviceProxy.js" />
+    <Content Include="plugins\cordova-plugin-device\tests\plugin.xml" />
+    <Content Include="plugins\cordova-plugin-device\tests\tests.js" />
+    <Content Include="plugins\cordova-plugin-device\www\device.js" />
+    <Content Include="plugins\cordova-plugin-splashscreen\plugin.xml" />
+    <Content Include="plugins\cordova-plugin-splashscreen\src\android\SplashScreen.java" />
+    <Content Include="plugins\cordova-plugin-splashscreen\src\blackberry10\index.js" />
+    <Content Include="plugins\cordova-plugin-splashscreen\src\browser\SplashScreenProxy.js" />
+    <Content Include="plugins\cordova-plugin-splashscreen\src\ios\CDVSplashScreen.h" />
+    <Content Include="plugins\cordova-plugin-splashscreen\src\ios\CDVViewController+SplashScreen.h" />
+    <Content Include="plugins\cordova-plugin-splashscreen\src\tizen\SplashScreenProxy.js" />
+    <Content Include="plugins\cordova-plugin-splashscreen\src\ubuntu\splashscreen.cpp" />
+    <Content Include="plugins\cordova-plugin-splashscreen\src\ubuntu\splashscreen.h" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\CDVSplashScreenTest\CDVSplashScreenLibTests\ImageNameTestDelegates.h" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\plugin.xml" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\tests.js" />
+    <Content Include="plugins\cordova-plugin-splashscreen\www\splashscreen.js" />
+    <Content Include="plugins\cordova-plugin-splashscreen\www\windows\SplashScreenProxy.js" />
+    <Content Include="plugins\cordova-plugin-whitelist\plugin.xml" />
+    <Content Include="plugins\cordova-plugin-whitelist\src\android\WhitelistPlugin.java" />
+    <Content Include="plugins\cordova-plugin-whitelist\src\ios\CDVNavigationWhitelistPlugin.h" />
+    <Content Include="plugins\cordova-plugin-whitelist\whitelist.js" />
+    <Content Include="www\css\ionic.app.css" />
+    <Content Include="www\css\ionic.app.min.css" />
+    <Content Include="www\css\style.css" />
+    <Content Include="www\img\ionic.png" />
+    <Content Include="www\index.html" />
+    <Content Include="www\js\app.js" />
+    <Content Include="www\js\controllers.js" />
+    <Content Include="www\lib\ionic\css\ionic.css" />
+    <Content Include="www\lib\ionic\css\ionic.min.css" />
+    <Content Include="www\lib\ionic\fonts\ionicons.svg" />
+    <Content Include="www\lib\ionic\js\angular-ui\angular-ui-router.js" />
+    <Content Include="www\lib\ionic\js\angular-ui\angular-ui-router.min.js" />
+    <Content Include="www\lib\ionic\js\angular\angular-animate.js" />
+    <Content Include="www\lib\ionic\js\angular\angular-animate.min.js" />
+    <Content Include="www\lib\ionic\js\angular\angular-resource.js" />
+    <Content Include="www\lib\ionic\js\angular\angular-resource.min.js" />
+    <Content Include="www\lib\ionic\js\angular\angular-sanitize.js" />
+    <Content Include="www\lib\ionic\js\angular\angular-sanitize.min.js" />
+    <Content Include="www\lib\ionic\js\angular\angular.js" />
+    <Content Include="www\lib\ionic\js\angular\angular.min.js" />
+    <Content Include="www\lib\ionic\js\ionic-angular.js" />
+    <Content Include="www\lib\ionic\js\ionic-angular.min.js" />
+    <Content Include="www\lib\ionic\js\ionic.bundle.js" />
+    <Content Include="www\lib\ionic\js\ionic.bundle.min.js" />
+    <Content Include="www\lib\ionic\js\ionic.js" />
+    <Content Include="www\lib\ionic\js\ionic.min.js" />
+    <Content Include="www\obj\Debug\WebApplication1.csproj.FileListAbsolute.txt" />
+    <Content Include="www\templates\browse.html" />
+    <Content Include="www\templates\login.html" />
+    <Content Include="www\templates\menu.html" />
+    <Content Include="www\templates\playlist.html" />
+    <Content Include="www\templates\playlists.html" />
+    <Content Include="www\templates\search.html" />
+    <Content Include="www\WebApplication1.csproj" />
+    <Content Include="www\WebApplication1.csproj.user" />
+    <Content Include="www\WebApplication1.sln" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="plugins\cordova-plugin-console\src\wp\DebugConsole.cs" />
+    <Compile Include="plugins\cordova-plugin-device\src\wp\Device.cs" />
+    <Compile Include="plugins\cordova-plugin-splashscreen\src\wp\ResolutionHelper.cs" />
+    <Compile Include="plugins\cordova-plugin-splashscreen\src\wp\SplashScreen.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="www\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="www\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="www\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="hooks\README.md" />
+    <Content Include="scss\ionic.app.scss" />
+    <Content Include="plugins\android.json" />
+    <Content Include="plugins\com.ionic.keyboard\LICENSE" />
+    <Content Include="plugins\com.ionic.keyboard\package.json" />
+    <Content Include="plugins\com.ionic.keyboard\README.md" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\.cproject" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\.project" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\device\libKeyboard.so" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\device\public\json_reader.o" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\device\public\json_value.o" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\device\public\json_writer.o" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\device\public\plugin.o" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\device\public\tokenizer.o" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\device\src\CallKeyboard.o" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\device\src\keyboard_js.o" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\device\src\keyboard_ndk.o" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\device\src\Logger.o" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\simulator\libKeyboard.so" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\simulator\public\json_reader.o" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\simulator\public\json_value.o" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\simulator\public\json_writer.o" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\simulator\public\plugin.o" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\simulator\public\tokenizer.o" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\simulator\src\CallKeyboard.o" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\simulator\src\keyboard_js.o" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\simulator\src\keyboard_ndk.o" />
+    <Content Include="plugins\com.ionic.keyboard\src\blackberry10\native\simulator\src\Logger.o" />
+    <Content Include="plugins\com.ionic.keyboard\src\ios\IonicKeyboard.m" />
+    <Content Include="plugins\com.ionic.keyboard\src\ios\UIWebViewExtension.m" />
+    <Content Include="plugins\cordova-plugin-console\CONTRIBUTING.md" />
+    <Content Include="plugins\cordova-plugin-console\doc\de\index.md" />
+    <Content Include="plugins\cordova-plugin-console\doc\de\README.md" />
+    <Content Include="plugins\cordova-plugin-console\doc\es\index.md" />
+    <Content Include="plugins\cordova-plugin-console\doc\es\README.md" />
+    <Content Include="plugins\cordova-plugin-console\doc\fr\index.md" />
+    <Content Include="plugins\cordova-plugin-console\doc\fr\README.md" />
+    <Content Include="plugins\cordova-plugin-console\doc\it\index.md" />
+    <Content Include="plugins\cordova-plugin-console\doc\it\README.md" />
+    <Content Include="plugins\cordova-plugin-console\doc\ja\index.md" />
+    <Content Include="plugins\cordova-plugin-console\doc\ja\README.md" />
+    <Content Include="plugins\cordova-plugin-console\doc\ko\index.md" />
+    <Content Include="plugins\cordova-plugin-console\doc\ko\README.md" />
+    <Content Include="plugins\cordova-plugin-console\doc\pl\index.md" />
+    <Content Include="plugins\cordova-plugin-console\doc\pl\README.md" />
+    <Content Include="plugins\cordova-plugin-console\doc\ru\index.md" />
+    <Content Include="plugins\cordova-plugin-console\doc\zh\index.md" />
+    <Content Include="plugins\cordova-plugin-console\doc\zh\README.md" />
+    <Content Include="plugins\cordova-plugin-console\LICENSE" />
+    <Content Include="plugins\cordova-plugin-console\NOTICE" />
+    <Content Include="plugins\cordova-plugin-console\package.json" />
+    <Content Include="plugins\cordova-plugin-console\README.md" />
+    <Content Include="plugins\cordova-plugin-console\RELEASENOTES.md" />
+    <Content Include="plugins\cordova-plugin-console\src\ios\CDVLogger.m" />
+    <Content Include="plugins\cordova-plugin-device\CONTRIBUTING.md" />
+    <Content Include="plugins\cordova-plugin-device\doc\de\index.md" />
+    <Content Include="plugins\cordova-plugin-device\doc\de\README.md" />
+    <Content Include="plugins\cordova-plugin-device\doc\es\index.md" />
+    <Content Include="plugins\cordova-plugin-device\doc\es\README.md" />
+    <Content Include="plugins\cordova-plugin-device\doc\fr\index.md" />
+    <Content Include="plugins\cordova-plugin-device\doc\fr\README.md" />
+    <Content Include="plugins\cordova-plugin-device\doc\it\index.md" />
+    <Content Include="plugins\cordova-plugin-device\doc\it\README.md" />
+    <Content Include="plugins\cordova-plugin-device\doc\ja\index.md" />
+    <Content Include="plugins\cordova-plugin-device\doc\ja\README.md" />
+    <Content Include="plugins\cordova-plugin-device\doc\ko\index.md" />
+    <Content Include="plugins\cordova-plugin-device\doc\ko\README.md" />
+    <Content Include="plugins\cordova-plugin-device\doc\pl\index.md" />
+    <Content Include="plugins\cordova-plugin-device\doc\pl\README.md" />
+    <Content Include="plugins\cordova-plugin-device\doc\ru\index.md" />
+    <Content Include="plugins\cordova-plugin-device\doc\zh\index.md" />
+    <Content Include="plugins\cordova-plugin-device\doc\zh\README.md" />
+    <Content Include="plugins\cordova-plugin-device\LICENSE" />
+    <Content Include="plugins\cordova-plugin-device\NOTICE" />
+    <Content Include="plugins\cordova-plugin-device\package.json" />
+    <Content Include="plugins\cordova-plugin-device\README.md" />
+    <Content Include="plugins\cordova-plugin-device\RELEASENOTES.md" />
+    <Content Include="plugins\cordova-plugin-device\src\ios\CDVDevice.m" />
+    <Content Include="plugins\cordova-plugin-splashscreen\CONTRIBUTING.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\doc\de\index.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\doc\de\README.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\doc\es\index.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\doc\es\README.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\doc\fr\index.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\doc\fr\README.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\doc\it\index.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\doc\it\README.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\doc\ja\index.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\doc\ja\README.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\doc\ko\index.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\doc\ko\README.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\doc\pl\index.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\doc\pl\README.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\doc\ru\index.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\doc\zh\index.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\doc\zh\README.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\LICENSE" />
+    <Content Include="plugins\cordova-plugin-splashscreen\NOTICE" />
+    <Content Include="plugins\cordova-plugin-splashscreen\package.json" />
+    <Content Include="plugins\cordova-plugin-splashscreen\README.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\RELEASENOTES.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\src\ios\CDVSplashScreen.m" />
+    <Content Include="plugins\cordova-plugin-splashscreen\src\ios\CDVViewController+SplashScreen.m" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\CDVSplashScreenTest.xcworkspace\contents.xcworkspacedata" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\CDVSplashScreenTest.xcworkspace\xcshareddata\CDVSplashScreenTest.xccheckout" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\CDVSplashScreenTest.xcworkspace\xcshareddata\xcschemes\CordovaLib.xcscheme" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\CDVSplashScreenTest\.npmignore" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\CDVSplashScreenTest\CDVSplashScreenLibTests\ImageNameTest.m" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\CDVSplashScreenTest\CDVSplashScreenLibTests\ImageNameTestDelegates.m" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\CDVSplashScreenTest\CDVSplashScreenLibTests\Info.plist" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\CDVSplashScreenTest\CDVSplashScreenTest.xcodeproj\project.pbxproj" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\CDVSplashScreenTest\CDVSplashScreenTest.xcodeproj\project.xcworkspace\contents.xcworkspacedata" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\CDVSplashScreenTest\CDVSplashScreenTest.xcodeproj\project.xcworkspace\xcshareddata\CDVSplashScreenTest.xccheckout" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\CDVSplashScreenTest\CDVSplashScreenTest.xcodeproj\xcshareddata\xcschemes\CDVSplashScreenLib.xcscheme" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\CDVSplashScreenTest\CDVSplashScreenTest.xcodeproj\xcshareddata\xcschemes\CDVSplashScreenLibTests.xcscheme" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\doc\de\README.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\doc\es\README.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\doc\fr\README.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\doc\it\README.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\doc\ja\README.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\doc\ko\README.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\doc\pl\README.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\doc\zh\README.md" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\package.json" />
+    <Content Include="plugins\cordova-plugin-splashscreen\tests\ios\README.md" />
+    <Content Include="plugins\cordova-plugin-whitelist\CONTRIBUTING.md" />
+    <Content Include="plugins\cordova-plugin-whitelist\LICENSE" />
+    <Content Include="plugins\cordova-plugin-whitelist\NOTICE" />
+    <Content Include="plugins\cordova-plugin-whitelist\package.json" />
+    <Content Include="plugins\cordova-plugin-whitelist\README.md" />
+    <Content Include="plugins\cordova-plugin-whitelist\RELEASENOTES.md" />
+    <Content Include="plugins\cordova-plugin-whitelist\src\ios\CDVNavigationWhitelistPlugin.m" />
+    <Content Include="plugins\fetch.json" />
+    <Content Include="plugins\ios.json" />
+    <Content Include=".bowerrc" />
+    <Content Include="www\lib\ionic\fonts\ionicons.eot" />
+    <Content Include="www\lib\ionic\fonts\ionicons.ttf" />
+    <Content Include="www\lib\ionic\fonts\ionicons.woff" />
+    <Content Include="www\lib\ionic\scss\ionic.scss" />
+    <Content Include="www\lib\ionic\scss\ionicons\ionicons.scss" />
+    <Content Include="www\lib\ionic\scss\ionicons\_ionicons-font.scss" />
+    <Content Include="www\lib\ionic\scss\ionicons\_ionicons-icons.scss" />
+    <Content Include="www\lib\ionic\scss\ionicons\_ionicons-variables.scss" />
+    <Content Include="www\lib\ionic\scss\_action-sheet.scss" />
+    <Content Include="www\lib\ionic\scss\_animations.scss" />
+    <Content Include="www\lib\ionic\scss\_backdrop.scss" />
+    <Content Include="www\lib\ionic\scss\_badge.scss" />
+    <Content Include="www\lib\ionic\scss\_bar.scss" />
+    <Content Include="www\lib\ionic\scss\_button-bar.scss" />
+    <Content Include="www\lib\ionic\scss\_button.scss" />
+    <Content Include="www\lib\ionic\scss\_checkbox.scss" />
+    <Content Include="www\lib\ionic\scss\_form.scss" />
+    <Content Include="www\lib\ionic\scss\_grid.scss" />
+    <Content Include="www\lib\ionic\scss\_items.scss" />
+    <Content Include="www\lib\ionic\scss\_list.scss" />
+    <Content Include="www\lib\ionic\scss\_loading.scss" />
+    <Content Include="www\lib\ionic\scss\_menu.scss" />
+    <Content Include="www\lib\ionic\scss\_mixins.scss" />
+    <Content Include="www\lib\ionic\scss\_modal.scss" />
+    <Content Include="www\lib\ionic\scss\_platform.scss" />
+    <Content Include="www\lib\ionic\scss\_popover.scss" />
+    <Content Include="www\lib\ionic\scss\_popup.scss" />
+    <Content Include="www\lib\ionic\scss\_progress.scss" />
+    <Content Include="www\lib\ionic\scss\_radio.scss" />
+    <Content Include="www\lib\ionic\scss\_range.scss" />
+    <Content Include="www\lib\ionic\scss\_refresher.scss" />
+    <Content Include="www\lib\ionic\scss\_reset.scss" />
+    <Content Include="www\lib\ionic\scss\_scaffolding.scss" />
+    <Content Include="www\lib\ionic\scss\_select.scss" />
+    <Content Include="www\lib\ionic\scss\_slide-box.scss" />
+    <Content Include="www\lib\ionic\scss\_spinner.scss" />
+    <Content Include="www\lib\ionic\scss\_tabs.scss" />
+    <Content Include="www\lib\ionic\scss\_toggle.scss" />
+    <Content Include="www\lib\ionic\scss\_transitions.scss" />
+    <Content Include="www\lib\ionic\scss\_type.scss" />
+    <Content Include="www\lib\ionic\scss\_util.scss" />
+    <Content Include="www\lib\ionic\scss\_variables.scss" />
+    <Content Include="www\lib\ionic\version.json" />
+    <Content Include="www\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="www\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="www\bin\" />
+    <Folder Include="www\fonts\" />
+    <Folder Include="www\obj\Debug\TempPE\" />
+    <Folder Include="www\WEB-INF\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ionic.project" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="package.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bower.json" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:4483/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
