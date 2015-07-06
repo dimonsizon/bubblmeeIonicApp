@@ -159,7 +159,7 @@
     <Content Include="www\lib\ionic\js\ionic.js" />
     <Content Include="www\lib\ionic\js\ionic.min.js" />
     <Content Include="www\obj\Debug\WebApplication1.csproj.FileListAbsolute.txt" />
-    <Content Include="www\templates\browse.html" />
+    <Content Include="www\templates\home.html" />
     <Content Include="www\templates\login.html" />
     <Content Include="www\templates\menu.html" />
     <Content Include="www\templates\playlist.html" />

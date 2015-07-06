@@ -20,52 +20,70 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
+.config(function ($stateProvider, $httpProvider, $urlRouterProvider) {
+    $httpProvider.defaults.withCredentials = true;
+    $stateProvider
 
-  .state('app', {
+    .state('app', {
     url: "/app",
     abstract: true,
     templateUrl: "templates/menu.html",
     controller: 'AppCtrl'
-  })
-
-  .state('app.search', {
-    url: "/search",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/search.html"
-      }
-    }
-  })
-
-  .state('app.browse', {
-    url: "/browse",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/browse.html"
-      }
-    }
-  })
-    .state('app.playlists', {
-      url: "/playlists",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
+    })
+    
+    .state('app.login', {
+        url: "/login",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/login.html",
+                controller: 'LoginCtrl'
+            }
         }
-      }
     })
 
-  .state('app.single', {
-    url: "/playlists/:playlistId",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/playlist.html",
-        controller: 'PlaylistCtrl'
-      }
-    }
-  });
+    .state('app.home', {
+        url: "/home",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/home.html",
+                controller: 'HomeCtrl'
+            }
+        }
+    });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
-});
+  $urlRouterProvider.otherwise('/app/home');
+})
+
+.run(['$rootScope', '$http', '$location', function ($rootScope, $http, $location) {
+    $rootScope.isLogged = false;
+    $rootScope.customer = { };
+    $http.get('https://api.bubblmee.com/customer/customer').success(function (data) {
+        $rootScope.customer = data;
+        $rootScope.isLogged = true;
+        //routChangeCallback();
+    }).error(function () {
+        $rootScope.isLogged = false;
+        $location.path('/app/login');
+        //routChangeCallback();
+    });
+    
+    //var routChangeCallback = function () {
+        
+    //};
+    $rootScope.logout = function () {
+        $http.post('https://api.bubblmee.com/customer/logout').success(
+            function () {
+                $rootScope.customer = {};
+                $rootScope.isLogged = false;
+                $location.path('/login');
+            }).error(function () {
+                $rootScope.error = "Unexpected error in Logout";
+            });
+    };
+
+    $rootScope.$on('$routeChangeStart', function (event) {
+        if (!$rootScope.isLogged) {
+            $location.path('/login');
+        }
+    });
+}]);

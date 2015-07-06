@@ -1,6 +1,6 @@
-angular.module('starter.controllers', [])
+﻿angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $http, $timeout) {
   
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -9,27 +9,25 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
   
-  // Form data for the login modal
-  $scope.loginData = {};
+  
 
-  // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
   });
 
-  // Triggered in the login modal to close it
   $scope.closeLogin = function() {
     $scope.modal.hide();
   };
 
-  // Open the login modal
   $scope.login = function() {
     $scope.modal.show();
   };
+    
+  
 
-  // Perform the login action when the user submits the login form
+
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
 
@@ -41,16 +39,44 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+.controller('LoginCtrl', function ($scope, $rootScope, $http, $location) {
+    $scope.customerData = {};
+    $scope.phoneIsSend = false;
+    $scope.error = '';
+    $scope.loading = false;
+    
+    $scope.getPhoneCode = function () {
+        $scope.loading = true;
+        if (!$scope.phoneIsSend) { // если телефон не отправлен
+            $http.post('https://api.bubblmee.com/customer/code', { phone: $scope.customerData.phone }).success(
+                function () {
+                    $scope.loading = false;
+                    $scope.phoneIsSend = true;
+                }).error(function() {
+                    $scope.error = "Incorect phone";
+                    $scope.errorClass = "text-danger";
+                });
+        } else {
+            $http.post('https://api.bubblmee.com/customer/login', { phone: $scope.customerData.phone, code: $scope.customerData.code }).success(
+                function () {
+                    $scope.loading = false;
+                    $location.path('/app/home');
+                }).error(function () {
+                    $scope.error = "Incorect code";
+                    $scope.errorClass = "text-danger";
+                });
+        }
+    }
+    
+    $scope.doRefresh = function () {
+        $scope.phoneIsSend = false;
+        $scope.loading = false;
+        $scope.customerData.phone = '';
+        $scope.customerData.code = '';
+        $scope.error = '';
+        $scope.$broadcast('scroll.refreshComplete');
+    };
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('HomeCtrl', function($scope, $stateParams) {
 });

@@ -1,25 +1,30 @@
 <ion-modal-view>
-  <ion-header-bar>
+  <!--<ion-header-bar>
     <h1 class="title">Login</h1>
-    <div class="buttons">
-      <button class="button button-clear" ng-click="closeLogin()">Close</button>
-    </div>
-  </ion-header-bar>
-  <ion-content>
-    <form ng-submit="doLogin()">
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Username</span>
-          <input type="text" ng-model="loginData.username">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="loginData.password">
-        </label>
-        <label class="item">
-          <button class="button button-block button-positive" type="submit">Log in</button>
-        </label>
-      </div>
-    </form>
-  </ion-content>
+  </ion-header-bar>-->
+    <ion-content>
+        <div class="text-center bottom20">
+            <img src="../img/logo.png"/ alt="logo">
+        </div>
+        
+        <ion-refresher
+            pulling-text="Pull to refresh..."
+            on-refresh="doRefresh()">
+        </ion-refresher>
+        <form ng-submit="getPhoneCode()">
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Phone</span>
+                    <input type="text" ng-model="customerData.phone" ng-disabled="phoneIsSend">
+                </label>
+                <label class="item item-input" ng-show="phoneIsSend">
+                    <span class="input-label">Code</span>
+                    <input type="password" ng-model="customerData.code">
+                </label>
+                <p class="assertive">{{error}}</p>
+                <button class="button button-block button-positive" type="submit">Ok</button>
+                <ion-spinner icon="spiral" class="block-center login-loading" ng-show="loading"></ion-spinner>
+            </div>
+        </form>        
+    </ion-content>
 </ion-modal-view>
