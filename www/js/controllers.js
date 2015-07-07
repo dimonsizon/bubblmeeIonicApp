@@ -39,11 +39,13 @@
   };
 })
 
-.controller('LoginCtrl', function ($scope, $rootScope, $http, $location) {
+.controller('LoginCtrl', function ($scope, $state, $rootScope, $http, $location) {
     $scope.customerData = {};
     $scope.phoneIsSend = false;
     $scope.error = '';
     $scope.loading = false;
+    
+    $state.go('app.login');
     
     $scope.getPhoneCode = function () {
         $scope.loading = true;
@@ -61,6 +63,14 @@
                 function () {
                     $scope.loading = false;
                     $location.path('/app/home');
+                    $http.get('https://api.bubblmee.com/customer/customer').success(function (data) {
+                        $rootScope.customer = data;
+                        $rootScope.isLogged = true;
+
+                    }).error(function () {
+                        $rootScope.isLogged = false;
+                        $location.path('/app/login');
+                    });
                 }).error(function () {
                     $scope.error = "Incorect code";
                     $scope.errorClass = "text-danger";

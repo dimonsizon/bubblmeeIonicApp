@@ -132,10 +132,13 @@
     <Content Include="plugins\cordova-plugin-whitelist\src\android\WhitelistPlugin.java" />
     <Content Include="plugins\cordova-plugin-whitelist\src\ios\CDVNavigationWhitelistPlugin.h" />
     <Content Include="plugins\cordova-plugin-whitelist\whitelist.js" />
+    <None Include="scss\variables.scss" />
+    <None Include="scss\general.scss" />
     <Content Include="www\css\ionic.app.css" />
     <Content Include="www\css\ionic.app.min.css" />
     <Content Include="www\css\style.css" />
     <Content Include="www\img\ionic.png" />
+    <Content Include="www\img\logo.png" />
     <Content Include="www\index.html" />
     <Content Include="www\js\app.js" />
     <Content Include="www\js\controllers.js" />

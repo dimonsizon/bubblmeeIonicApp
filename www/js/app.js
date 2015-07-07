@@ -25,10 +25,10 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     $stateProvider
 
     .state('app', {
-    url: "/app",
-    abstract: true,
-    templateUrl: "templates/menu.html",
-    controller: 'AppCtrl'
+        url: "/app",
+        abstract: true,
+        templateUrl: "templates/menu.html",
+        controller: 'AppCtrl'
     })
     
     .state('app.login', {
@@ -54,36 +54,34 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   $urlRouterProvider.otherwise('/app/home');
 })
 
-.run(['$rootScope', '$http', '$location', function ($rootScope, $http, $location) {
+.run(['$rootScope', '$http',  '$location', '$state',
+    function ($rootScope, $http, $location, $state) {
     $rootScope.isLogged = false;
     $rootScope.customer = { };
     $http.get('https://api.bubblmee.com/customer/customer').success(function (data) {
         $rootScope.customer = data;
         $rootScope.isLogged = true;
-        //routChangeCallback();
+
     }).error(function () {
         $rootScope.isLogged = false;
         $location.path('/app/login');
-        //routChangeCallback();
+        //$state.go('app.login');
     });
-    
-    //var routChangeCallback = function () {
-        
-    //};
+
     $rootScope.logout = function () {
         $http.post('https://api.bubblmee.com/customer/logout').success(
             function () {
                 $rootScope.customer = {};
                 $rootScope.isLogged = false;
-                $location.path('/login');
+                $location.path('/app/login');
             }).error(function () {
                 $rootScope.error = "Unexpected error in Logout";
             });
     };
 
-    $rootScope.$on('$routeChangeStart', function (event) {
+    $rootScope.$on('$stateChangeStart', function (event) {
         if (!$rootScope.isLogged) {
-            $location.path('/login');
+            $location.path('/app/login');
         }
     });
 }]);
