@@ -39,48 +39,69 @@
   };
 })
 
-.controller('LoginCtrl', function ($scope, $state, $rootScope, $http, $location) {
+.controller('LoginCtrl', function ($scope, $state, $rootScope, $http, $location, $timeout) {
     $scope.customerData = {};
-    $scope.phoneIsSend = false;
+    $scope.codeIsSend = false;
     $scope.error = '';
     $scope.loading = false;
+    $scope.reSentCode = false;
     
-    $state.go('app.login');
+    //$state.go('login');
     
     $scope.getPhoneCode = function () {
-        $scope.loading = true;
-        if (!$scope.phoneIsSend) { // если телефон не отправлен
-            $http.post('https://api.bubblmee.com/customer/code', { phone: $scope.customerData.phone }).success(
-                function () {
-                    $scope.loading = false;
-                    $scope.phoneIsSend = true;
-                }).error(function() {
-                    $scope.error = "Incorect phone";
-                    $scope.errorClass = "text-danger";
-                });
+        if (!$scope.codeIsSend) { // если телефон не отправлен
+            $scope.SentCode()
         } else {
-            $http.post('https://api.bubblmee.com/customer/login', { phone: $scope.customerData.phone, code: $scope.customerData.code }).success(
-                function () {
-                    $scope.loading = false;
-                    $location.path('/app/home');
-                    $http.get('https://api.bubblmee.com/customer/customer').success(function (data) {
-                        $rootScope.customer = data;
-                        $rootScope.isLogged = true;
-
-                    }).error(function () {
-                        $rootScope.isLogged = false;
-                        $location.path('/app/login');
-                    });
-                }).error(function () {
-                    $scope.error = "Incorect code";
-                    $scope.errorClass = "text-danger";
-                });
+            $scope.loginWithCode();
         }
     }
     
+    $scope.SentCode = function () {
+        $scope.loading = true;
+        $scope.reSentCode = false;
+        $http.post('https://api.bubblmee.com/customer/code', { phone: $scope.customerData.phone }).success(
+            function () {
+                $scope.loading = false;
+                $scope.codeIsSend = true;
+                $timeout(function() {
+                    $scope.reSentCode = true;
+                }, 60000);
+            }).error(function () {
+                $scope.error = "Incorect phone";
+                $scope.errorClass = "text-danger";
+                $scope.loading = false;
+            });
+    }
+    
+    $scope.loginWithCode = function () {
+        $scope.loading = true;
+        $http.post('https://api.bubblmee.com/customer/login', { phone: $scope.customerData.phone, code: $scope.customerData.code }).success(
+            function () {
+                $rootScope.isLogged = true;
+                $location.path('/app/home');
+                $scope.loading = false;
+                $http.get('https://api.bubblmee.com/customer/customer').success(function (data) {
+                    $rootScope.customer = data;
+                }).error(function () {
+                    $location.path('/login');
+                    $rootScope.isLogged = false;
+                });
+            }).error(function () {
+                $scope.error = "Incorect code";
+                $scope.errorClass = "text-danger";
+                $scope.loading = false;
+            });
+    }
+    
+    $scope.editPhone = function() {
+        $scope.codeIsSend = false;
+        $scope.reSentCode = false;
+    }
+    
     $scope.doRefresh = function () {
-        $scope.phoneIsSend = false;
+        $scope.codeIsSend = false;
         $scope.loading = false;
+        $scope.reSentCode = false;
         $scope.customerData.phone = '';
         $scope.customerData.code = '';
         $scope.error = '';

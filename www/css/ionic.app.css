@@ -1,4 +1,7 @@
 @charset "UTF-8";
+a {
+  cursor: pointer; }
+
 .pull-right {
   float: right; }
 
@@ -7702,5 +7705,8 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.login-loading {
+.login-view .ion-alert-circled {
+  font-size: 18px; }
+
+.login-view .login-loading {
   width: 27px; }

@@ -8,6 +8,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/lib/ionic/scss/ionic";
 
 //login styles
-.login-loading {
+.login-view .ion-alert-circled {
+	font-size: 18px;
+}
+
+.login-view .login-loading {
 	width: 27px;
 }

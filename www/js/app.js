@@ -31,14 +31,10 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         controller: 'AppCtrl'
     })
     
-    .state('app.login', {
+    .state('login', {
         url: "/login",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/login.html",
-                controller: 'LoginCtrl'
-            }
-        }
+        templateUrl: "templates/login.html",
+        controller: 'LoginCtrl'
     })
 
     .state('app.home', {
@@ -61,11 +57,13 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     $http.get('https://api.bubblmee.com/customer/customer').success(function (data) {
         $rootScope.customer = data;
         $rootScope.isLogged = true;
-
+        $location.path('/app/home');
+        routChangeCallback();
     }).error(function () {
         $rootScope.isLogged = false;
-        $location.path('/app/login');
+        $location.path('/login');
         //$state.go('app.login');
+        routChangeCallback();
     });
 
     $rootScope.logout = function () {
@@ -73,15 +71,22 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             function () {
                 $rootScope.customer = {};
                 $rootScope.isLogged = false;
-                $location.path('/app/login');
+                $location.path('/login');
+                $scope.codeIsSend = false;
+                $scope.customerData.phone = '';
+                $scope.customerData.code = '';
             }).error(function () {
                 $rootScope.error = "Unexpected error in Logout";
             });
     };
-
-    $rootScope.$on('$stateChangeStart', function (event) {
-        if (!$rootScope.isLogged) {
-            $location.path('/app/login');
-        }
-    });
+        
+    var routChangeCallback = function () {
+        $rootScope.$on('$stateChangeStart', function (event) {
+            if (!$rootScope.isLogged) {
+                $location.path('/login');
+            } else {
+                $location.path('/app/home');
+            }
+        });
+    };
 }]);

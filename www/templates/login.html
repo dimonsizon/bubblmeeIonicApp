@@ -1,24 +1,36 @@
 <ion-view>
-    <ion-content>
-        <div class="text-center bottom20">
-            <img src="../img/logo.png" width="300" alt="logo" />
+    <ion-content class="login-view">
+        <div class="text-center top30 bottom20">
+            <img ng-src="img/logo.png" width="300" alt="logo" />
         </div>
         <ion-refresher
             pulling-text="Pull to refresh..."
             on-refresh="doRefresh()">
         </ion-refresher>
-        <form ng-submit="getPhoneCode()">
+        <form>
             <div class="list">
                 <label class="item item-input">
                     <span class="input-label">Phone</span>
-                    <input type="number" ng-model="customerData.phone" ng-disabled="phoneIsSend">
+                    <input type="number" ng-model="customerData.phone" ng-disabled="codeIsSend">
                 </label>
-                <label class="item item-input" ng-show="phoneIsSend">
+                <div ng-show="codeIsSend">
+                    <label class="item item-input">
                     <span class="input-label">Code</span>
-                    <input type="password" ng-model="customerData.code">
-                </label>
+                    <input type="number" ng-model="customerData.code">
+                    </label>
+                    <button class="button button-clear button-positive" ng-click="editPhone()">
+                        Wrong phone? Re-enter
+                    </button>
+                    <p class="padding top10" ng-show="reSentCode">
+                        <i class="icon ion-alert-circled energized"></i>
+                        You still haven't entered the code.
+                        <a class="positive" ng-click="SentCode()">
+                            Re-send it
+                        </a>
+                    </p>
+                </div>
                 <p class="assertive">{{error}}</p>
-                <button class="button button-block button-positive" type="submit" ng-disabled="loading">Ok</button>
+                <button class="button button-block button-positive" type="submit" ng-disabled="loading" ng-click="getPhoneCode()">{{codeIsSend ? 'Login' : 'Next'}}</button>
                 <ion-spinner icon="spiral" class="block-center login-loading" ng-show="loading"></ion-spinner>
             </div>
         </form>        
