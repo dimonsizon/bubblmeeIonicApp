@@ -67,8 +67,10 @@
                     $scope.reSentCode = true;
                 }, 60000);
             }).error(function () {
-                $scope.error = "Incorect phone";
-                $scope.errorClass = "text-danger";
+                $scope.error = "Unexpected error";
+                $timeout(function() {
+                    $scope.error = '';
+                }, 3000);
                 $scope.loading = false;
             });
     }
@@ -82,13 +84,18 @@
                 $scope.loading = false;
                 $http.get('https://api.bubblmee.com/customer/customer').success(function (data) {
                     $rootScope.customer = data;
+                    $scope.codeIsSend = false;
+                    $scope.customerData.phone = '';
+                    $scope.customerData.code = '';
                 }).error(function () {
                     $location.path('/login');
                     $rootScope.isLogged = false;
                 });
             }).error(function () {
                 $scope.error = "Incorect code";
-                $scope.errorClass = "text-danger";
+                $timeout(function () {
+                    $scope.error = '';
+                }, 3000);
                 $scope.loading = false;
             });
     }

@@ -72,9 +72,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                 $rootScope.customer = {};
                 $rootScope.isLogged = false;
                 $location.path('/login');
-                $scope.codeIsSend = false;
-                $scope.customerData.phone = '';
-                $scope.customerData.code = '';
             }).error(function () {
                 $rootScope.error = "Unexpected error in Logout";
             });

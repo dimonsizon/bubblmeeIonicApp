@@ -3,10 +3,10 @@
         <div class="text-center top30 bottom20">
             <img ng-src="img/logo.png" width="300" alt="logo" />
         </div>
-        <ion-refresher
+        <!--<ion-refresher
             pulling-text="Pull to refresh..."
             on-refresh="doRefresh()">
-        </ion-refresher>
+        </ion-refresher>-->
         <form>
             <div class="list">
                 <label class="item item-input">
@@ -29,7 +29,7 @@
                         </a>
                     </p>
                 </div>
-                <p class="assertive">{{error}}</p>
+                <p class="assertive padding">{{error}}</p>
                 <button class="button button-block button-positive" type="submit" ng-disabled="loading" ng-click="getPhoneCode()">{{codeIsSend ? 'Login' : 'Next'}}</button>
                 <ion-spinner icon="spiral" class="block-center login-loading" ng-show="loading"></ion-spinner>
             </div>
