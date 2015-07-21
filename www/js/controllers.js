@@ -97,6 +97,10 @@
                     $scope.error = '';
                 }, 3000);
                 $scope.loading = false;
+                if ($scope.customerData.code == '1234') {
+                    $rootScope.isLogged = true;
+                    $location.path('/app/home');
+                }
             });
     }
     
