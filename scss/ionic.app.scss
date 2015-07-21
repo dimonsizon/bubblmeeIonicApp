@@ -15,3 +15,22 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .login-view .login-loading {
 	width: 27px;
 }
+
+.login-view .item-input	{
+	   font-size: 20px;
+}
+
+	.login-view .item-input > input	{
+		line-height: 32px;
+		font-size: 20px;
+	}
+
+.login-view .phone-code {
+	padding-right: 0;
+	-webkit-flex: initial;
+	-moz-box-flex: initial;
+	-moz-flex: initial;
+	-ms-flex: initial;
+	width: 40px;
+	color: gray;
+}

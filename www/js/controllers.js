@@ -45,6 +45,7 @@
     $scope.error = '';
     $scope.loading = false;
     $scope.reSentCode = false;
+    $scope.customerData.phoneCode = 7;
     
     //$state.go('login');
     
@@ -59,7 +60,8 @@
     $scope.SentCode = function () {
         $scope.loading = true;
         $scope.reSentCode = false;
-        $http.post('https://api.bubblmee.com/customer/code', { phone: $scope.customerData.phone }).success(
+        var phone = +($scope.customerData.phoneCode + '' + $scope.customerData.phone);
+        $http.post('https://api.bubblmee.com/customer/code', { phone: phone }).success(
             function () {
                 $scope.loading = false;
                 $scope.codeIsSend = true;
