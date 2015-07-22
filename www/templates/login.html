@@ -11,13 +11,14 @@
         </ion-refresher>-->
         <form>
             <div class="list">
+                <p class="text-center">Enter your phone number</p>
                 <label class="item item-input">
-                    <span>+</span>
-                    <input class="phone-code" type="number" ng-model="customerData.phoneCode" ng-disabled="codeIsSend" >
-                    <input type="number" ng-model="customerData.phone" placeholder="0123456789" ng-disabled="codeIsSend">
+                    <span class="phone-code-text">+{{customerData.phoneCode}}</span>
+                    <input class="phone-code" type="hidden" ng-model="customerData.phoneCode" ng-disabled="codeIsSend" >
+                    <input id="phone" type="tel" ng-model="customerData.phone" placeholder="1234567890" ng-disabled="codeIsSend">
                 </label>
                 <label class="item item-input" ng-show="codeIsSend">
-                    <input type="tel" ng-model="customerData.code" placeholder="Enter code">
+                    <input id="smsCode" type="tel" ng-model="customerData.code" placeholder="Enter code">
                 </label>
                 <p class="assertive padding">{{error}}</p>
                 <button class="button button-block button-positive" type="submit" ng-disabled="loading" ng-click="getPhoneCode()">{{codeIsSend ? 'Login' : 'Get SMS Code'}}</button>

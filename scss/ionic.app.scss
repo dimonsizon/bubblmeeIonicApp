@@ -17,20 +17,24 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 }
 
 .login-view .item-input	{
-	   font-size: 20px;
+	font-size: 18px;  	
 }
 
 	.login-view .item-input > input	{
-		line-height: 32px;
-		font-size: 20px;
+		line-height: 33px;
+		font-size: 18px;
 	}
+.login-view .phone-code-text {
+	flex: 0 1 28px;
+	-webkit-flex: 0 1 28px;
+	height: 28px;
+}
 
 .login-view .phone-code {
+	margin-right: 15px;
 	padding-right: 0;
-	-webkit-flex: initial;
-	-moz-box-flex: initial;
-	-moz-flex: initial;
-	-ms-flex: initial;
+	
 	width: 40px;
 	color: gray;
+	border-right: 1px solid #ddd;
 }

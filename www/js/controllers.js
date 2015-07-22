@@ -46,6 +46,8 @@
     $scope.loading = false;
     $scope.reSentCode = false;
     $scope.customerData.phoneCode = 7;
+
+    document.getElementById("phone").focus();
     
     //$state.go('login');
     
@@ -65,9 +67,13 @@
             function () {
                 $scope.loading = false;
                 $scope.codeIsSend = true;
+                $timeout(function () {
+                    document.getElementById("smsCode").focus();
+                }, 500);
                 $timeout(function() {
                     $scope.reSentCode = true;
                 }, 60000);
+                
             }).error(function () {
                 $scope.error = "Unexpected error";
                 $timeout(function() {
