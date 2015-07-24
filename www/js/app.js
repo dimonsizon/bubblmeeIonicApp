@@ -9,7 +9,11 @@ angular.module('app', [
     'app.controllers',
     'app.login',
     'app.orders',
-    'app.settings'
+    'app.settings',
+    'app.creditCard',
+    'app.coupons',
+    'app.map',
+    'app.feedback'
 ])
 
 .run(function($ionicPlatform) {
