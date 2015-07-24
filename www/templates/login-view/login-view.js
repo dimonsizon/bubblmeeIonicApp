@@ -56,7 +56,8 @@ angular.module('app.login', [])
 
     $scope.loginWithCode = function() {
         $scope.loading = true;
-        $http.post('https://api.bubblmee.com/customer/login', { phone: $scope.customerData.phone, code: $scope.customerData.code }).success(
+        var phone = +($scope.customerData.phoneCode + '' + $scope.customerData.phone);
+        $http.post('https://api.bubblmee.com/customer/login', { phone: phone, code: $scope.customerData.code }).success(
             function() {
                 $rootScope.isLogged = true;
                 $location.path('/app/orders');

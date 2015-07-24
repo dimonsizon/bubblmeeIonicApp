@@ -68,12 +68,13 @@ angular.module('app', [
     };
         
     var routChangeCallback = function () {
-        $rootScope.$on('$stateChangeStart', function (event) {
+        $rootScope.$on('$stateChangeSuccess', function (event) {
             if (!$rootScope.isLogged) {
                 $location.path('/login');
             } else {
-                $location.path('/app/orders');
+                //$location.path('/app/orders');
             }
         });
     };
 }]);
+

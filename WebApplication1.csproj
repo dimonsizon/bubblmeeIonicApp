@@ -162,6 +162,14 @@
     <Content Include="www\lib\ionic\js\ionic.js" />
     <Content Include="www\lib\ionic\js\ionic.min.js" />
     <Content Include="www\obj\Debug\WebApplication1.csproj.FileListAbsolute.txt" />
+    <Content Include="www\templates\coupons-view\coupons.html" />
+    <Content Include="www\templates\coupons-view\coupons.js" />
+    <Content Include="www\templates\credit-card-view\credit-card.html" />
+    <Content Include="www\templates\credit-card-view\credit-card.js" />
+    <Content Include="www\templates\feedback-view\feedback.html" />
+    <Content Include="www\templates\feedback-view\feedback.js" />
+    <Content Include="www\templates\map-view\map.html" />
+    <Content Include="www\templates\map-view\map.js" />
     <Content Include="www\templates\orders-view\orders.html" />
     <Content Include="www\templates\login-view\login-view.js" />
     <Content Include="www\templates\login-view\login.html" />
