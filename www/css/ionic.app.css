@@ -7721,7 +7721,7 @@ a.button {
 .login-view .phone-code-text {
   flex: 0 1 28px;
   -webkit-flex: 0 1 28px;
-  height: 28px; }
+  height: 30px; }
 
 .login-view .phone-code {
   margin-right: 15px;
