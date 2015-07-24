@@ -12,10 +12,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	font-size: 18px;
 }
 
-.login-view .login-loading {
-	width: 27px;
-}
-
 .login-view .item-input	{
 	font-size: 18px;  	
 }
@@ -24,6 +20,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 		line-height: 33px;
 		font-size: 18px;
 	}
+
 .login-view .phone-code-text {
 	flex: 0 1 28px;
 	-webkit-flex: 0 1 28px;

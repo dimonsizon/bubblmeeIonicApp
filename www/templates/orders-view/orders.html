@@ -1,7 +1,5 @@
 <ion-view view-title="Bubblmee">
     <ion-content>
-        
-        
         <div class="list">
             <a class="item item-thumbnail-left" href="#" collection-repeat="order in orders.orders | filter:4745269688 | orderBy:'timestamp':true">
                 <!--<img ng-src="cover.jpg" alt="" />-->
@@ -29,5 +27,6 @@
                     <p>23 July</p>
                 </a>-->
         </div>
+        <ion-spinner icon="spiral" class="block-center loading" ng-show="orders.length == 0"></ion-spinner>
     </ion-content>
 </ion-view>

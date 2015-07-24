@@ -45,6 +45,9 @@ a {
 .bottom20 {
   margin-bottom: 20px; }
 
+.loading {
+  width: 27px; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -7707,9 +7710,6 @@ a.button {
 
 .login-view .ion-alert-circled {
   font-size: 18px; }
-
-.login-view .login-loading {
-  width: 27px; }
 
 .login-view .item-input {
   font-size: 18px; }

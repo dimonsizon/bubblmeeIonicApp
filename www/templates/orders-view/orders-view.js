@@ -14,7 +14,7 @@
 
 .controller('OrdersCtrl', ['$scope', '$stateParams', '$http', '$filter',
     function ($scope, $stateParams, $http, $filter) {
-    
+        $scope.orders = [];
         $scope.getOrders = function() {
             $http.get('https://api.bubblmee.com/merchant/pos/a19ed734-947c-4b4a-8fa8-1296e0fc9fc9/orderReport?from=1407618000000&to=1437685200000').success(function (data) {
                 
