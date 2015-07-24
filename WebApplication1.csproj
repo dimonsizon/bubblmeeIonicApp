@@ -170,6 +170,8 @@
     <Content Include="www\templates\playlist.html" />
     <Content Include="www\templates\playlists.html" />
     <Content Include="www\templates\search.html" />
+    <Content Include="www\templates\settings-view\settings.html" />
+    <Content Include="www\templates\settings-view\settings.js" />
     <Content Include="www\WebApplication1.csproj" />
     <Content Include="www\WebApplication1.csproj.user" />
     <Content Include="www\WebApplication1.sln" />

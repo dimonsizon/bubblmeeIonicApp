@@ -8,7 +8,8 @@ angular.module('app', [
     'ionic',
     'app.controllers',
     'app.login',
-    'app.orders'
+    'app.orders',
+    'app.settings'
 ])
 
 .run(function($ionicPlatform) {
@@ -70,7 +71,6 @@ angular.module('app', [
         $rootScope.$on('$stateChangeStart', function (event) {
             if (!$rootScope.isLogged) {
                 $location.path('/login');
-                //$location.path('/app/orders');
             } else {
                 $location.path('/app/orders');
             }
