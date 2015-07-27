@@ -1,7 +1,7 @@
-<ion-view view-title="Bubblmee">
+<ion-view view-title="My orders">
     <ion-content>
         <div class="list">
-            <a class="item item-thumbnail-left" href="#/app/orderDetails" collection-repeat="order in orders | orderBy:'timestamp':true">
+            <a class="item item-thumbnail-left" href="#" collection-repeat="order in orders | orderBy:'timestamp':true" ng-click="openOrderDetails(order.products)">
                 <!--<img ng-src="cover.jpg" alt="" />-->
                 <div class="count-img text-center">
                     {{order.products.length}}

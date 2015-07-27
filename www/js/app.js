@@ -67,6 +67,7 @@ angular.module('app', [
             function () {
                 $rootScope.customer = {};
                 $rootScope.isLogged = false;
+                $rootScope.openProducts = [];
                 $location.path('/login');
             }).error(function () {
                 $rootScope.error = "Unexpected error in Logout";

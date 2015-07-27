@@ -12,8 +12,8 @@
         });
 }])
 
-.controller('OrdersCtrl', ['$scope', '$stateParams', '$http', '$filter',
-    function ($scope, $stateParams, $http, $filter) {
+.controller('OrdersCtrl', ['$scope', '$rootScope', '$stateParams', '$http', '$location', '$filter',
+    function ($scope, $rootScope, $stateParams, $http, $location, $filter) {
         $scope.orders = [];
         $scope.getOrders = function() {
             $http.get('https://dev-api.bubblmee.com/customer/orders?from=1407013200000&to=1438030800000').success(function (data) {
@@ -28,6 +28,11 @@
             }).error(function () {
                 $scope.error = "Error";
             });
+        }
+        
+        $scope.openOrderDetails = function (products) {
+            $rootScope.openProducts = products;
+            $location.path('/app/orderDetails');
         }
 
         $scope.getOrders();
