@@ -1,0 +1,16 @@
+﻿<ion-view view-title="Order Details">
+    <ion-content>
+        <div class="list">
+            <a class="item item-thumbnail-left" href="#" collection-repeat="product in orders.products">
+                {{product}}
+                {{product.name}}
+                <!--<img ng-src="cover.jpg" alt="" />-->
+
+                <!--<h2><span ng-repeat="product in order.products">{{product.name}}<span ng-if="$index+1 != order.products.length">, </span></span></h2>
+                    <p>{{order.total}} NOK</p>
+                    <p>{{order.timestampModel}}</p>-->
+            </a>
+        </div>
+        <ion-spinner icon="spiral" class="block-center loading" ng-show="orders.length == 0"></ion-spinner>
+    </ion-content>
+</ion-view>
