@@ -45,15 +45,17 @@ angular.module('app', [
   $urlRouterProvider.otherwise('/app/orders');
 })
 
-.run(['$rootScope', '$http',  '$location', '$state',
-    function ($rootScope, $http, $location, $state) {
+.run(['$rootScope', '$http', '$location', '$state', '$filter',
+    function ($rootScope, $http, $location, $state, $filter) {
     $rootScope.isLogged = false;
     $rootScope.customer = {};
+    $rootScope.orders = [];
     $rootScope.orderProducts = [];
     $http.get('https://dev-api.bubblmee.com/customer/customer').success(function (data) {
         $rootScope.customer = data;
         $rootScope.isLogged = true;
         $location.path('/app/orders');
+        $rootScope.getOrders();
         routChangeCallback();
     }).error(function () {
         $rootScope.isLogged = false;
@@ -72,6 +74,20 @@ angular.module('app', [
             }).error(function () {
                 $rootScope.error = "Unexpected error in Logout";
             });
+    };
+        
+    $rootScope.getOrders = function () {
+        $http.get('https://dev-api.bubblmee.com/customer/orders?from=1407013200000&to=1438030800000').success(function (data, status) {
+            if (data) {
+                for (var i = 0; i < data.length; ++i) {
+                    data[i].timestampModel = $filter('date')(data[i].timestamp, 'd MMMM yyyy ');
+                }
+            }
+
+            $rootScope.orders = data;
+        }).error(function (status) {
+            
+        });
     };
         
     var routChangeCallback = function () {

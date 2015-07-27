@@ -67,6 +67,7 @@ angular.module('app.login', [])
                     $scope.codeIsSend = false;
                     $scope.customerData.phone = '';
                     $scope.customerData.code = '';
+                    $rootScope.getOrders();
                 }).error(function() {
                     $location.path('/login');
                     $rootScope.isLogged = false;
