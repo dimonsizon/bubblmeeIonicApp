@@ -9,6 +9,7 @@ angular.module('app', [
     'app.controllers',
     'app.login',
     'app.orders',
+    'app.orderDetails',
     'app.settings',
     'app.creditCard',
     'app.coupons',
@@ -47,8 +48,9 @@ angular.module('app', [
 .run(['$rootScope', '$http',  '$location', '$state',
     function ($rootScope, $http, $location, $state) {
     $rootScope.isLogged = false;
-    $rootScope.customer = { };
-    $http.get('https://api.bubblmee.com/customer/customer').success(function (data) {
+    $rootScope.customer = {};
+    $rootScope.orderProducts = [];
+    $http.get('https://dev-api.bubblmee.com/customer/customer').success(function (data) {
         $rootScope.customer = data;
         $rootScope.isLogged = true;
         $location.path('/app/orders');
@@ -61,7 +63,7 @@ angular.module('app', [
     });
 
     $rootScope.logout = function () {
-        $http.post('https://api.bubblmee.com/customer/logout').success(
+        $http.post('https://dev-api.bubblmee.com/customer/logout').success(
             function () {
                 $rootScope.customer = {};
                 $rootScope.isLogged = false;

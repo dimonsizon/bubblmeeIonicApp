@@ -34,7 +34,7 @@ angular.module('app.login', [])
         $scope.loading = true;
         $scope.reSentCode = false;
         var phone = +($scope.customerData.phoneCode + '' + $scope.customerData.phone);
-        $http.post('https://api.bubblmee.com/customer/code', { phone: phone }).success(
+        $http.post('https://dev-api.bubblmee.com/customer/code', { phone: phone }).success(
             function() {
                 $scope.loading = false;
                 $scope.codeIsSend = true;
@@ -57,12 +57,12 @@ angular.module('app.login', [])
     $scope.loginWithCode = function() {
         $scope.loading = true;
         var phone = +($scope.customerData.phoneCode + '' + $scope.customerData.phone);
-        $http.post('https://api.bubblmee.com/customer/login', { phone: phone, code: $scope.customerData.code }).success(
+        $http.post('https://dev-api.bubblmee.com/customer/login', { phone: phone, code: $scope.customerData.code }).success(
             function() {
                 $rootScope.isLogged = true;
                 $location.path('/app/orders');
                 $scope.loading = false;
-                $http.get('https://api.bubblmee.com/customer/customer').success(function(data) {
+                $http.get('https://dev-api.bubblmee.com/customer/customer').success(function(data) {
                     $rootScope.customer = data;
                     $scope.codeIsSend = false;
                     $scope.customerData.phone = '';
