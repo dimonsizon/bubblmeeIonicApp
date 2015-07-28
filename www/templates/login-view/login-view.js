@@ -10,14 +10,42 @@ angular.module('app.login', [])
         });
 }])
 
-.controller('LoginCtrl', function($scope, $state, $rootScope, $http, $location, $timeout) {
+.factory('focus', function ($timeout, $window) {
+    return function (id) {
+        // timeout makes sure that it is invoked after any other event has been triggered.
+        // e.g. click events that need to run before the focus or
+        // inputs elements that are in a disabled state but are enabled when those events
+        // are triggered.
+        $timeout(function () {
+            var element = $window.document.getElementById(id);
+            if (element)
+                element.focus();
+        });
+    };
+})
+
+.directive('eventFocus', function (focus) {
+    return function (scope, elem, attr) {
+        elem.on(attr.eventFocus, function () {
+            focus(attr.eventFocusId);
+        });
+
+        // Removes bound events in the element itself
+        // when the scope is destroyed
+        scope.$on('$destroy', function () {
+            elem.off(attr.eventFocus);
+        });
+    };
+})
+
+.controller('LoginCtrl', function ($scope, $state, $rootScope, $http, $location, $timeout, focus) {
     $scope.customerData = {};
     $scope.codeIsSend = false;
     $scope.error = '';
     $scope.loading = false;
     $scope.reSentCode = false;
     $scope.customerData.phoneCode = 7;
-
+    
     document.getElementById("phone").focus();
 
     //$state.go('login');
@@ -40,7 +68,8 @@ angular.module('app.login', [])
                 $scope.codeIsSend = true;
                 $timeout(function() {
                     document.getElementById("smsCode").focus();
-                }, 500);
+                }, 1500);
+                //$scope.smsCodeFocus = true; //focus o sms code unput
                 $timeout(function() {
                     $scope.reSentCode = true;
                 }, 60000);
