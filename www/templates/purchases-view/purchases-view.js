@@ -20,9 +20,9 @@
             
         //}
         
-        $scope.openOrderDetails = function (order) {
-            $rootScope.openOrder = order;
-            $location.path('/app/orderDetails');
+        $scope.openPurchaseDetails = function (purchase) {
+            $rootScope.openPurchase = purchase;
+            $location.path('/app/purchaseDetails');
         }
 
         

@@ -170,13 +170,13 @@
     <Content Include="www\templates\feedback-view\feedback.js" />
     <Content Include="www\templates\map-view\map.html" />
     <Content Include="www\templates\map-view\map.js" />
-    <Content Include="www\templates\order-details\order-details.html" />
-    <Content Include="www\templates\order-details\order-details.js" />
-    <Content Include="www\templates\orders-view\orders.html" />
+    <Content Include="www\templates\purchase-details\purchase-details.html" />
+    <Content Include="www\templates\purchase-details\purchase-details.js" />
+    <Content Include="www\templates\purchases-view\purchases.html" />
     <Content Include="www\templates\login-view\login-view.js" />
     <Content Include="www\templates\login-view\login.html" />
     <Content Include="www\templates\menu.html" />
-    <Content Include="www\templates\orders-view\orders-view.js" />
+    <Content Include="www\templates\purchases-view\purchases-view.js" />
     <Content Include="www\templates\playlist.html" />
     <Content Include="www\templates\playlists.html" />
     <Content Include="www\templates\search.html" />

@@ -10,7 +10,7 @@ angular.module('app', [
     'app.controllers',
     'app.login',
     'app.purchases',
-    'app.orderDetails',
+    'app.purchaseDetails',
     'app.settings',
     'app.creditCard',
     'app.coupons',
@@ -51,7 +51,7 @@ angular.module('app', [
     $rootScope.isLogged = false;
     $rootScope.customer = {};
     $rootScope.purchases = [];
-    $rootScope.orderProducts = [];
+    $rootScope.openPurchase = [];
     $http.get('https://dev-api.bubblmee.com/customer/customer').success(function (data) {
         $rootScope.customer = data;
         $rootScope.isLogged = true;
@@ -70,7 +70,6 @@ angular.module('app', [
             function () {
                 $rootScope.customer = {};
                 $rootScope.isLogged = false;
-                $rootScope.openOrder = [];
                 $location.path('/login');
             }).error(function () {
                 $rootScope.error = "Unexpected error in Logout";
