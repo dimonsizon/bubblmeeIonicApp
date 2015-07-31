@@ -1,5 +1,9 @@
 ﻿<ion-view view-title="Credit card">
   <ion-content>
-
+      {{barcodeData}} <br/>
+      text: {{barcodeData.text}} <br/>
+      format: {{barcodeData.format}} <br/>
+      cancelled: {{barcodeData.cancelled}} <br/>
+      <button ng-click="scanQRCode()">Scan QR Code</button>
   </ion-content>
 </ion-view>

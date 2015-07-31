@@ -6,6 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('app', [
     'ionic',
+    'ngCordova',
     'app.controllers',
     'app.login',
     'app.orders',

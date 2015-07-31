@@ -12,8 +12,46 @@
         });
 }])
 
-.controller('CreditCardCtrl', ['$scope', '$stateParams', '$http',
-function ($scope, $stateParams, $http) {
+.controller('CreditCardCtrl', ['$scope', '$stateParams', '$http', '$cordovaBarcodeScanner',
+function ($scope, $stateParams, $http, $cordovaBarcodeScanner) {
+    $scope.barcodeData = [];
+    
+    $scope.scanQRCode = function() {
+        $cordovaBarcodeScanner
+          .scan()
+          .then(function (barcodeData) {
+              $scope.barcodeData = barcodeData;
+              alert(barcodeData.text);
+              // Success! Barcode data is here
+          }, function (error) {
+              alert(error);
+              // An error occurred
+          });
+    }
+    //document.addEventListener("deviceready", function () {
+
+        //$cordovaBarcodeScanner
+        //  .scan()
+        //  .then(function (barcodeData) {
+        //      $scope.barcodeData = barcodeData;
+        //      alert(barcodeData.text);
+        //      // Success! Barcode data is here
+        //  }, function (error) {
+        //      alert(error);
+        //      // An error occurred
+        //  });
+
+
+        // NOTE: encoding not functioning yet
+    //    $cordovaBarcodeScanner
+    //      .encode(BarcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com")
+    //      .then(function (success) {
+    //          // Success!
+    //      }, function (error) {
+    //          // An error occurred
+    //      });
+
+    //}, false);
 
 
 }]);
