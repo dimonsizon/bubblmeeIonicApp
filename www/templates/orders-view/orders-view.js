@@ -20,8 +20,8 @@
             
         //}
         
-        $scope.openOrderDetails = function (products) {
-            $rootScope.openProducts = products;
+        $scope.openOrderDetails = function (order) {
+            $rootScope.openOrder = order;
             $location.path('/app/orderDetails');
         }
 

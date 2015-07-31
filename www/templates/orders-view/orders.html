@@ -1,7 +1,7 @@
 <ion-view view-title="My orders">
     <ion-content>
         <div class="list">
-            <a class="item item-thumbnail-left" href="#" collection-repeat="order in orders | orderBy:'timestamp':true" ng-click="openOrderDetails(order.products)">
+            <a class="item item-thumbnail-left" href="#" collection-repeat="order in orders | orderBy:'timestamp':true" ng-click="openOrderDetails(order)">
                 <img ng-src="{{order.products[0].imageUrl}}" alt="" ng-show="order.products.length == 1" />
                 <div class="count-img text-center" ng-hide="order.products.length == 1">
                     {{order.products.length}}

@@ -1,10 +1,14 @@
 ﻿<ion-view view-title="Order Details">
     <ion-content>
         <div class="list">
-            <div class="item item-thumbnail-left" collection-repeat="product in openProducts">
+            <div class="item">
+                <p>Total: {{openOrder.total}} NOK</p>
+            </div>
+            <div class="item item-thumbnail-left" collection-repeat="product in products">
                 <img ng-src="{{product.imageUrl}}" alt="" />
                 <h2>{{product.name}}</h2>
                 <p>{{product.price}} NOK</p>
+                <p>{{openOrder.timestampModel}}</p>
             </div>
         </div>
         <!--<ion-spinner icon="spiral" class="block-center loading" ng-show="orders.length == 0"></ion-spinner>-->

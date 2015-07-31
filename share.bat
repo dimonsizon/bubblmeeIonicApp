@@ -1,4 +1,4 @@
 d:
 cd bubblmeeIonicApp
-ionic share igorboky@gmail.com
+ionic share rashid.lepshokov@gmail.com 
 pause
