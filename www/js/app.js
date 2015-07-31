@@ -9,7 +9,7 @@ angular.module('app', [
     'ngCordova',
     'app.controllers',
     'app.login',
-    'app.orders',
+    'app.purchases',
     'app.orderDetails',
     'app.settings',
     'app.creditCard',
@@ -43,20 +43,20 @@ angular.module('app', [
         controller: 'AppCtrl'
     });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/orders');
+    $urlRouterProvider.otherwise('/app/purchases');
 })
 
 .run(['$rootScope', '$http', '$location', '$state', '$filter',
     function ($rootScope, $http, $location, $state, $filter) {
     $rootScope.isLogged = false;
     $rootScope.customer = {};
-    $rootScope.orders = [];
+    $rootScope.purchases = [];
     $rootScope.orderProducts = [];
     $http.get('https://dev-api.bubblmee.com/customer/customer').success(function (data) {
         $rootScope.customer = data;
         $rootScope.isLogged = true;
-        $location.path('/app/orders');
-        $rootScope.getOrders();
+        $location.path('/app/purchases');
+        $rootScope.getPurchases();
         routChangeCallback();
     }).error(function () {
         $rootScope.isLogged = false;
@@ -77,7 +77,7 @@ angular.module('app', [
             });
     };
         
-    $rootScope.getOrders = function () {
+    $rootScope.getPurchases = function () {
         $http.get('https://dev-api.bubblmee.com/customer/orders?from=1407013200000&to=1438030800000').success(function (data, status) {
             if (data) {
                 for (var i = 0; i < data.length; ++i) {
@@ -85,7 +85,7 @@ angular.module('app', [
                 }
             }
 
-            $rootScope.orders = data;
+            $rootScope.purchases = data;
         }).error(function (status) {
             
         });
@@ -96,7 +96,7 @@ angular.module('app', [
             if (!$rootScope.isLogged) {
                 $location.path('/login');
             } else {
-                //$location.path('/app/orders');
+                //$location.path('/app/purchases');
             }
         });
     };

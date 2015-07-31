@@ -14,6 +14,6 @@
 
 .controller('OrderDetailsCtrl', ['$scope', '$rootScope', '$stateParams', '$http', '$filter',
     function ($scope, $rootScope, $stateParams, $http, $filter) {
-        $scope.orders = []; //проверить используется или нет
+        $scope.purchases = []; //проверить используется или нет
         $scope.products = $rootScope.openOrder.products;
     }]);

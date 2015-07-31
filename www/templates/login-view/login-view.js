@@ -89,14 +89,14 @@ angular.module('app.login', [])
         $http.post('https://dev-api.bubblmee.com/customer/login', { phone: phone, code: $scope.customerData.code }).success(
             function() {
                 $rootScope.isLogged = true;
-                $location.path('/app/orders');
+                $location.path('/app/purchases');
                 $scope.loading = false;
                 $http.get('https://dev-api.bubblmee.com/customer/customer').success(function(data) {
                     $rootScope.customer = data;
                     $scope.codeIsSend = false;
                     $scope.customerData.phone = '';
                     $scope.customerData.code = '';
-                    $rootScope.getOrders();
+                    $rootScope.getPurchases();
                 }).error(function() {
                     $location.path('/login');
                     $rootScope.isLogged = false;
@@ -109,7 +109,7 @@ angular.module('app.login', [])
                 $scope.loading = false;
                 if ($scope.customerData.code == '1234') {
                     $rootScope.isLogged = true;
-                    $location.path('/app/orders');
+                    $location.path('/app/purchases');
                 }
             });
     }
