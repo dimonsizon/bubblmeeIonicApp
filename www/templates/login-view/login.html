@@ -11,9 +11,12 @@
         </ion-refresher>-->
         <form>
             <div class="list">
+                <intl-tel ng-model="customerData.phone"></intl-tel>
+                <!--<input type="tel" international-phone-number default-country="ru" ng-model="customerData.phone">-->
+                {{customerData.phone}}
                 <!--for focus directive and factory
                     <div class="btn btn-primary" event-focus="click" event-focus-id="phone">Declarative Focus</div>
-                <div class="btn btn-primary" ng-click="focus('phone');">Imperative Focus</div>-->
+                    <div class="btn btn-primary" ng-click="focus('phone');">Imperative Focus</div>-->
                 <p class="text-center">Enter your phone number</p>
                 <label class="item item-input">
                     <span class="phone-code-text">+{{customerData.phoneCode}}</span>

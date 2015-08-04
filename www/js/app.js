@@ -7,6 +7,7 @@
 angular.module('app', [
     'ionic',
     'ngCordova',
+    //'internationalPhoneNumber',
     'app.controllers',
     'app.login',
     'app.purchases',

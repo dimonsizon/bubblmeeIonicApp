@@ -134,6 +134,7 @@
     <Content Include="plugins\cordova-plugin-whitelist\whitelist.js" />
     <None Include="scss\variables.scss" />
     <None Include="scss\general.scss" />
+    <Content Include="www\css\intlTelInput.css" />
     <Content Include="www\css\ionic.app.css" />
     <Content Include="www\css\ionic.app.min.css" />
     <Content Include="www\css\style.css" />
@@ -142,6 +143,9 @@
     <Content Include="www\index.html" />
     <Content Include="www\js\app.js" />
     <Content Include="www\js\controllers.js" />
+    <Content Include="www\js\international-phone-number.min.js" />
+    <Content Include="www\js\intlTelInput.min.js" />
+    <Content Include="www\js\ng-cordova.min.js" />
     <Content Include="www\lib\ionic\css\ionic.css" />
     <Content Include="www\lib\ionic\css\ionic.min.css" />
     <Content Include="www\lib\ionic\fonts\ionicons.svg" />
