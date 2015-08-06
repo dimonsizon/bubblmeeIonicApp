@@ -43,7 +43,7 @@ angular.module('app.login', [])
         replace: true,
         restrict: 'E',
         require: 'ngModel',
-        template: '<input type="text" placeholder="+1 702 123 4567">',
+        template: '<input type="text" placeholder="+7 702 123 4567" />',
         link: function (scope, element, attrs, ngModel) {
             var read = function () {
                 var inputValue = element.val();
