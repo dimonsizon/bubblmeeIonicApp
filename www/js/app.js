@@ -10,6 +10,7 @@ angular.module('app', [
     //'internationalPhoneNumber',
     'app.controllers',
     'app.login',
+    'app.home',
     'app.purchases',
     'app.purchaseDetails',
     'app.settings',

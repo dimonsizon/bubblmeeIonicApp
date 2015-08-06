@@ -1,0 +1,13 @@
+﻿<ion-view view-title="Home">
+  <ion-content>
+      <div class="list">
+          <div class="item item-divider">
+              Last machines
+          </div>
+          <a class="item" href="#/app/{{lastMachine.id}}/products" collection-repeat="lastMachine in lastMachines">
+              <h2>{{lastMachine.name}}</h2>
+              <a href="#">{{lastMachine.locationAddress}}</a>
+          </a>
+    </div>
+  </ion-content>
+</ion-view>
