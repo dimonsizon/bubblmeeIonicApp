@@ -1,11 +1,20 @@
 ﻿<ion-view view-title="Machine products">
   <ion-content>
-    <div class="list">
-        <div class="item item-thumbnail-left" collection-repeat="product in machineProducts">
-            <img ng-src="{{product.imageUrl}}" alt="" />
-            <h2>{{product.name}}</h2>
-            <p>{{product.price}} NOK</p>
-        </div>
-    </div>
+      <div class="list">
+          <button class="button button-clear button-positive" ng-click="openMap()">
+              {{machine.locationAddress}}
+          </button>
+          <div ng-if="mapIsOpen">
+              <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+                <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+                </ui-gmap-marker>
+              </ui-gmap-google-map>
+          </div>
+          <div class="item item-thumbnail-left" collection-repeat="product in machineProducts">
+              <img ng-src="{{product.imageUrl}}" alt="" />
+              <h2>{{product.name}}</h2>
+              <p>{{product.price}} NOK</p>
+          </div>
+      </div>
   </ion-content>
 </ion-view>

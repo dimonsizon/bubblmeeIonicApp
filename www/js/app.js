@@ -17,7 +17,8 @@ angular.module('app', [
     'app.creditCard',
     'app.coupons',
     'app.map',
-    'app.feedback'
+    'app.feedback',
+    'uiGmapgoogle-maps'
 ])
 
 .run(function($ionicPlatform) {

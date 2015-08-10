@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 a {
   cursor: pointer; }
 
@@ -7742,4 +7742,8 @@ a.button {
   color: white;
   font-size: 70px;
   line-height: 72px;
-  background-color: #00aeef; }
+  background-color: #00aeef; 
+}
+
+
+.angular-google-map-container { height: 250px; }
