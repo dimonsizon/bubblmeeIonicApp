@@ -6,15 +6,23 @@
           </button>
           <div ng-if="mapIsOpen">
               <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-                <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
-                </ui-gmap-marker>
+                  <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+                  </ui-gmap-marker>
               </ui-gmap-google-map>
           </div>
-          <div class="item item-thumbnail-left" collection-repeat="product in machineProducts">
+          <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" placeholder="Filter by name" ng-model="filterBy.name">
+          </label>
+          <div class="item item-thumbnail-left" collection-repeat="product in filtered = (machineProducts | filter:filterBy)">
               <img ng-src="{{product.imageUrl}}" alt="" />
               <h2>{{product.name}}</h2>
               <p>{{product.price}} NOK</p>
           </div>
+          <div class="item" ng-if="filtered.length == 0">
+            <p>Machines not found</p>
+          </div>
       </div>
+      <ion-spinner icon="spiral" class="block-center loading" ng-show="machineProducts.length == 0"></ion-spinner>
   </ion-content>
 </ion-view>
